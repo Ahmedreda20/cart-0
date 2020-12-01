@@ -105,25 +105,27 @@ const btns = document.querySelectorAll(".js-md-co"),
     ofcon = document.querySelector(".offers-container"),
     ofbcan = ofcon.querySelector(".btn-cancel");
     
-btns.forEach(bns => {
-
-    bns.onclick = () => {
-        btns.forEach(n => {
-            n.classList.remove("btn-active");
+for (let b = 0; b < btns.length; b++) {
+    const bn = btns[b];
+    bn.onclick = () => {
+        btns.forEach(bns => {
+            bns.classList.remove("btn-active");
         })
-        bns.classList.add("btn-active");
+            bn.classList.add("btn-active");
+
     }
-});
+     
+}
 
 ofbtn.onclick = () => {
     return $(ofcon).show(),
         $(offers[0]).show(),
-        oferbtns[0].classList.add("btn-active"),
         $("body").css("overflow", "hidden");
 }
 ofbcan.onclick = () => {
     return $(ofcon).hide(),
         $("body").css("overflow", "auto");
+    
 }
 
 $(".btn-change").click(() => {
@@ -136,4 +138,40 @@ $(".btn-change").click(() => {
             $(d).attr("class", "chn-co op");
     }
 
+});
+
+$(function () {
+    $('#plus').on('click',function(){
+        var $qty=$(this).closest('div').find('#test');
+        var currentVal = parseInt($qty.val());
+        if (!isNaN(currentVal)) {
+            $qty.val(currentVal + 1);
+        }
+    });
+    $('#minus').on('click',function(){
+        var $qty=$(this).closest('div').find('#test');
+        var currentVal = parseInt($qty.val());
+        if (!isNaN(currentVal) && currentVal > 0) {
+            $qty.val(currentVal - 1);
+        }
+    });
+});
+
+
+
+$(document).ready(function () {
+    var divs = $('.offers-box table');
+    var now = 0; // currently shown div
+    divs.hide().first().show();
+    $(".btn-next-el").click(function (e) {
+        divs.eq(now).hide();
+        now = (now + 1 < divs.length) ? now + 1 : 0;
+        divs.eq(now).show(); // show next
+    });
+    $(".btn-prev-el").click(function (e) {
+        divs.eq(now).hide();
+        now = (now > 0) ? now - 1 : divs.length - 1;
+        divs.eq(now).show(); // or .css('display','block');
+        //console.log(divs.length, now);
+    });
 });
