@@ -547,7 +547,7 @@ margin: auto;
 .app__container .shipment-con .shipment-box .con-fixed .con-box table {
   width: 100%;
   position: relative;
-  /* display: none; */
+  display: none;
 }
 .app__container .shipment-con .shipment-box .con-fixed .con-box .offers-control{
     display: flex;
@@ -594,6 +594,10 @@ margin: auto;
   background: #5398Ff;
   border-radius: 100px;
 }
+.app__container .shipment-con .shipment-box .con-fixed .con-box table td .pro-det p{
+  padding: 10px 0;
+}
+
 .app__container .shipment-con .shipment-box .con-fixed .con-box table td .btn-links a {
   color: #fff;
   text-decoration: none;
