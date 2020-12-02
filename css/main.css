@@ -11,6 +11,9 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+body{
+  scroll-behavior: smooth;
+}
 body , input , button , textarea ,  select{
   font-family: "Almarai";
 }
@@ -162,6 +165,9 @@ a{
 }
 .app__container .cart_slidebar .slidebar-content .buttons .btn-part a{
   color: #D7385E;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
 }
 .app__container .cart_slidebar .slidebar-content .part-amount-con {
   width: 100%;

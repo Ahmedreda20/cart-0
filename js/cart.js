@@ -7,8 +7,12 @@ entirybtn.onclick = () => {
 }
     entirycancel.onclick =e => {
         e.preventDefault();
-        
-    $(entirycon).hide();
+        $(entirycon).hide();
+        if (window.innerWidth > 850) {
+            $("HTML, BODY").animate({
+                scrollTop: 0
+            }, 1000);
+        }
 }
     
     $(document).ready(() => {
