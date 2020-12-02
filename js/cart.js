@@ -3,16 +3,17 @@ const entirybtn = document.querySelector(".btn-part"),
     entirycancel = entirycon.querySelector(".btn-form-btn-cancel");
 
 entirybtn.onclick = () => {
-    $(entirycon).show();
+    $(entirycon).slideDown();
 }
     entirycancel.onclick =e => {
         e.preventDefault();
-        $(entirycon).hide();
+        $(entirycon).slideUp();
         if (window.innerWidth > 850) {
             $("HTML, BODY").animate({
                 scrollTop: 0
             }, 1000);
         }
+        
 }
     
     $(document).ready(() => {
