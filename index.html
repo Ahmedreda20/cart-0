@@ -102,10 +102,10 @@
                
                 <div class="buttons">
                     <button class="btn-pay">الدفع</button>
-                    <button class="btn-part">دفع جزء من المبلغ؟</button>
+                    <button class="btn-part"><a href="#part-am">دفع جزء من المبلغ؟</a> </button>
                 </div>
 
-                    <div class="part-amount-con">
+                    <div class="part-amount-con" id="part-am">
                         <form action="" class="part-con">
                             <div class="group-form">
                                 <label for="inp-0">ساقوم بدفع جزء من المبلغ وهو:</label>
@@ -177,7 +177,8 @@
                                 3 
                             </p>
                             <p><span class="name-el">تكلفة الشحن التقريبي: </span> × 1 </p>
-                            <div class="form">
+                            <button class="btn-change">تغيير الكمية!</button>
+                            <div class="form" data-type="change-closed">
                                 <form action="" class="change-m-form">
                                     <label for="test">الكمية</label>
                                     <div class="change-box">
@@ -185,6 +186,7 @@
                                         <input type="text" value="0" min="0" step="1" id="test" required>
                                         <input type="button" value="-" id="minus">
                                     </div>
+                                    <button class="btn-update">تحديث</button>
                                 </form>
                             </div>
                             <div class="pro-details">
@@ -261,7 +263,10 @@
 
                     <div class="photos-container con-fixed">
                         <div class="photo-box con-box">
-                            <div class="image-slider img-loading">
+                            <div class="image-preview">
+                                <img id="img-prev">
+                            </div>
+                            <div class="image-items">
                                 <div class="item">
                                     <img src="./images/product1.jpg" alt="" class="item-image">
                                 </div>
@@ -283,9 +288,6 @@
                                 <div class="item">
                                     <img src="./images/product7.jpg" alt="" class="item-image">
                                 </div>
-
-                                <button class="btn-arrow next"><i class="fa fa-angle-right"></i></button>
-                                <button class="btn-arrow prev"><i class="fa fa-angle-left"></i></button>
                             </div>
                             <button class="btn-cancel">الغاء</button>
                         </div>
@@ -293,9 +295,14 @@
 
                     <div class="offers-container con-fixed">
                         <div class="con-box offers-box">
-                            <p>يمكنك رؤية المزيد من العروض المرفقة مع الشحنة او العرض الاساسي  هنا.</p>
+                            <p>يمكنك رؤية المزيد من العروض المرفقة مع الشحنة او العرض الاساسي من هنا.</p>
+                            <div class="offers-btns">
+                                <button class="btn-offer btn-con">الاول</button>
+                                <button class="btn-offer btn-con">الثاني</button>
+                                <button class="btn-offer btn-con">الثالث</button>
+                            </div>
                             <div class="offers-b">
-                                <table class="offer-elem">
+                                <table>
                                     <tbody>
                                         <tr>
                                             <td colspan="2">
@@ -307,11 +314,12 @@
                                         <tr>
                                             <td>
                                                 <div class="pro-det">
-                                                    <p class="pro-name">موبايل شاومي ريدمي نوت 9 برو بشريحتين اتصال - شاشة 6.67 بوصة، 128 جيجابايت، 6 جيجابايت رام، شبكة
+                                                    <p class="pro-name">موبايل شاومي ريدمي نوت 9 برو بشريحتين اتصال - شاشة 6.67 بوصة، 128
+                                                        جيجابايت، 6 جيجابايت رام، شبكة
                                                         الجيل الرابع ال تي اي -
                                                         رمادي انترستيلر</p>
                                                     <p class="pro-prise">931.65<span class="coins">ريال</span></p>
-                                                    
+                    
                                                     <p class="pro-weight"> 209 جم</p>
                                                     <p class="pro-color">رمادي</p>
                                                     <p class="pro-height">165.8 × 76.7 × 8.8 ملم</p>
@@ -326,39 +334,40 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table class="offer-elem">
-                                <tbody>
-                                    <tr>
-                                        <td colspan="2">
-                                            <div class="image-prev">
-                                                <img src="./images/product1.jpg" alt="" class="img-p">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="pro-det">
-                                                <p class="pro-name">موبايل شاومي ريدمي نوت 9 برو بشريحتين اتصال - شاشة 6.67 بوصة، 128 جيجابايت، 6
-                                                    جيجابايت رام، شبكة
-                                                    الجيل الرابع ال تي اي -
-                                                    رمادي انترستيلر</p>
-                                                <p class="pro-prise">931.65<span class="coins">ريال</span></p>
-                            
-                                                <p class="pro-weight"> 209 جم</p>
-                                                <p class="pro-color">رمادي</p>
-                                                <p class="pro-height">165.8 × 76.7 × 8.8 ملم</p>
-                                                <p class="pro-qu">1080 × 2400 بكسل +FHD</p>
-                                                <p class="pro-num">
-                                                    3 عروض
-                                                </p>
-                                                <p>تكلفة الشحن التقريبى × 1</p>
-                                                <button class="btn-links"><a href="#">الرابط</a></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="image-prev">
+                                                    <img src="./images/product1.jpg" alt="" class="img-p">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="pro-det">
+                                                    <p class="pro-name">موبايل شاومي ريدمي نوت 9 برو بشريحتين اتصال - شاشة 6.67 بوصة، 128
+                                                        جيجابايت، 6
+                                                        جيجابايت رام، شبكة
+                                                        الجيل الرابع ال تي اي -
+                                                        رمادي انترستيلر</p>
+                                                    <p class="pro-prise">931.65<span class="coins">ريال</span></p>
+                    
+                                                    <p class="pro-weight"> 209 جم</p>
+                                                    <p class="pro-color">رمادي</p>
+                                                    <p class="pro-height">165.8 × 76.7 × 8.8 ملم</p>
+                                                    <p class="pro-qu">1080 × 2400 بكسل +FHD</p>
+                                                    <p class="pro-num">
+                                                        3 عروض
+                                                    </p>
+                                                    <p>تكلفة الشحن التقريبى × 1</p>
+                                                    <button class="btn-links"><a href="#">الرابط</a></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
-                                <table class="offer-elem">
+                                <table>
                                     <tbody>
                                         <tr>
                                             <td colspan="2">
@@ -370,12 +379,13 @@
                                         <tr>
                                             <td>
                                                 <div class="pro-det">
-                                                    <p class="pro-name">موبايل شاومي ريدمي نوت 9 برو بشريحتين اتصال - شاشة 6.67 بوصة، 128 جيجابايت، 6
+                                                    <p class="pro-name">موبايل شاومي ريدمي نوت 9 برو بشريحتين اتصال - شاشة 6.67 بوصة، 128
+                                                        جيجابايت، 6
                                                         جيجابايت رام، شبكة
                                                         الجيل الرابع ال تي اي -
                                                         رمادي انترستيلر</p>
                                                     <p class="pro-prise">931.65<span class="coins">ريال</span></p>
-                                
+                    
                                                     <p class="pro-weight"> 209 جم</p>
                                                     <p class="pro-color">رمادي</p>
                                                     <p class="pro-height">165.8 × 76.7 × 8.8 ملم</p>
@@ -390,17 +400,14 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            <div class="offers-control">
-                                <button class="btn-o btn-next-el">التالي</button>
-                                <button class="btn-o btn-prev-el">السابق</button>
                             </div>
+                            <div class="offers-btns btns">
+                                <button class="btn-submit">اختيار العرض</button>
+                                <button class="btn-cancel">الغاء</button>
                             </div>
-                             <div class="offers-btns btns">
-                                    <button class="btn-submit">اختيار العرض</button>
-                                    <button class="btn-cancel">الغاء</button>
-                                </div>
                         </div>
                     </div>
+
 
             </div>
         </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

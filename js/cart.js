@@ -3,24 +3,20 @@ const entirybtn = document.querySelector(".btn-part"),
     entirycancel = entirycon.querySelector(".btn-form-btn-cancel");
 
 entirybtn.onclick = () => {
-    $(entirycon).slideDown();
+    $(entirycon).show();
 }
     entirycancel.onclick =e => {
         e.preventDefault();
         
-    $(entirycon).slideUp();
+    $(entirycon).hide();
 }
     
     $(document).ready(() => {
         //btn open photos
 
         $('.btn-photos').click(() => {
-            $(".image-slider").not('.slick-initialized').slick({
-                prevArrow: '<button class="btn-arrow prev"><i class="fa fa-angle-left"></i></button>',
-                nextArrow: '<button class="btn-arrow next"><i class="fa fa-angle-right"></i></button>',
-                arrow: true,
-                rtl: true
-            });
+            imgp.src = images[0].getAttribute("data-src")
+            imgp.setAttribute("data-type", 'image-prev-num-0');
             $(".photos-container").show();
         });
         $('.photo-box .btn-cancel').click(() => {
@@ -91,10 +87,9 @@ for (let o = 0; o < oferbtns.length; o++) {
         offers.forEach(ofc => {
         let odt = ofc.getAttribute("data-type");
             if (dt === odt) {
-                return $(ofc).show(100);
+                return $(ofc).show();
             } else {
-                return $(ofc).hide(100);
-            
+                return $(ofc).hide();
             }
         })
     }
@@ -118,27 +113,34 @@ for (let b = 0; b < btns.length; b++) {
 }
 
 ofbtn.onclick = () => {
+
+    offers.forEach(ofe => {
+        if (ofe.getAttribute("data-type") === "ofer-num-0") {
+            $(ofe).show();
+        } else {
+            $(ofe).hide();
+        }
+    });
+
+  oferbtns.forEach(ofen => {
+        if (ofen.getAttribute("data-type") === "ofer-num-0") {
+            ofen.classList.add("btn-active");
+        } else {
+            ofen.classList.remove("btn-active");
+        }
+    });
     return $(ofcon).show(),
-        $(offers[0]).show(),
+           
+        oferbtns[0].classList.add("btn-active"),
         $("body").css("overflow", "hidden");
 }
 ofbcan.onclick = () => {
     return $(ofcon).hide(),
         $("body").css("overflow", "auto");
-    
 }
 
-$(".btn-change").click(() => {
-    let d = document.querySelector(".chn-co");
-    if (d.className === "chn-co op") {
-        return $(d).show(),
-            $(d).attr("class", "chn-co cl");
-    } else{
-                return $(d).hide(),
-            $(d).attr("class", "chn-co op");
-    }
 
-});
+
 
 $(function () {
     $('#plus').on('click',function(){
@@ -158,20 +160,26 @@ $(function () {
 });
 
 
+const images = document.querySelectorAll(".item-image"),
+    imgp = document.getElementById("img-prev");
 
-$(document).ready(function () {
-    var divs = $('.offers-box table');
-    var now = 0; // currently shown div
-    divs.hide().first().show();
-    $(".btn-next-el").click(function (e) {
-        divs.eq(now).hide();
-        now = (now + 1 < divs.length) ? now + 1 : 0;
-        divs.eq(now).show(); // show next
-    });
-    $(".btn-prev-el").click(function (e) {
-        divs.eq(now).hide();
-        now = (now > 0) ? now - 1 : divs.length - 1;
-        divs.eq(now).show(); // or .css('display','block');
-        //console.log(divs.length, now);
-    });
+images.forEach(im => {
+    im.setAttribute("data-src", im.src);
+    
+    im.onclick = () => {
+        return imgp.src = im.getAttribute("data-src"),
+            imgp.setAttribute("data-type", `image-prev-num-${$(images).index(im)}`);
+    }
+});
+
+
+$(".btn-change").click(() => {
+    let chn = document.querySelector(".form");
+    if (chn.getAttribute("data-type") === "change-closed") {
+        return $(chn).show(),
+            $(chn).attr("data-type", "change-opened");
+    } else {
+       return $(chn).hide(),
+            $(chn).attr("data-type", "change-closed"); 
+    }
 });
