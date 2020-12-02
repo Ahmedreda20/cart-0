@@ -2,7 +2,7 @@
   src: url("../fonts/Almarai-Bold.ttf");
   font-family: "Almarai";
   font-weight: normal;
-  font-style: normal
+  font-style: normal;
 }
 *, *::after , *::before{
   margin: 0;
@@ -13,6 +13,7 @@
 }
 body{
   scroll-behavior: smooth;
+  line-height: 25px;
 }
 body , input , button , textarea ,  select{
   font-family: "Almarai";
@@ -165,6 +166,7 @@ a{
   width: auto;
   display: block;
   margin: 5px auto;
+  padding: 0;
 }
 .app__container .cart_slidebar .slidebar-content .buttons .btn-part a{
   color: #D7385E;
