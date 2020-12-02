@@ -1,4 +1,4 @@
-const entirybtn = document.querySelector(".btn-part"),
+const entirybtn = document.querySelector(".btn-part a"),
     entirycon = document.querySelector(".part-amount-con"),
     entirycancel = entirycon.querySelector(".btn-form-btn-cancel");
 
@@ -188,3 +188,20 @@ $(".btn-change").click(() => {
             $(chn).attr("data-type", "change-closed"); 
     }
 });
+
+
+//delete item open container if it goes here
+const dbtn = document.querySelector(".btn-delete"),
+    dcon = document.querySelector(".delete-item-con"),
+    dcan = dcon.querySelector(".btn-canc");
+
+
+dbtn.onclick = () => {
+    $(dcon).show();
+    $("body").css("overflow", "hidden");
+}
+dcan.onclick = e => {
+    e.preventDefault();
+    $(dcon).hide();
+    $("body").css("overflow", "auto");
+    }
